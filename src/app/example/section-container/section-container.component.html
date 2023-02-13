@@ -1,0 +1,13 @@
+<section>
+    <header>
+        <button type="button" (click)="onAdd()">+</button>
+        <h3>Section {{ no }}</h3>
+        <button type="button" (click)="onRemove()" [disabled]="!removeable">X</button>
+    </header>
+    <div>
+        <app-input-container *ngFor="let item of data; let i = index" [no]="i+1" [data]="item" (remove)="removeChild(i)" [removeable]="data.length > 1" (dataChanged)="onChanged()">
+
+        </app-input-container>
+    </div>
+    <output>{{ getResult() }}</output>
+</section>
